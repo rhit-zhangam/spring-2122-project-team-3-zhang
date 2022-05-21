@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="styles/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>RidePosts</title>
+</head>
+
+<body>
+    <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
+        <header class="bmd-layout-header">
+            <nav class="navbar navbar-dark fixed-top justify-content-start">
+                <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
+                    <span class="sr-only">Toggle drawer</span>
+                    <i class="material-icons">menu</i>
+                </button>
+                <a class="navbar-brand" href="#">&nbsp;&nbsp;RidePosts | Create a New Post</a>
+            </nav>
+        </header>
+        <div id="dw-s2" class="bmd-layout-drawer bg-faded">
+            <header>
+                <a class="navbar-brand">RidePosts</a>
+            </header>
+            <ul class="list-group">
+                <a id="menuBulletinBoard" class="list-group-item">Bulletin Board</a>
+                <a id="menuCarpools" class="list-group-item">Carpools</a>
+                <a id="menuAccount" class="list-group-item">My Account</a>
+                <a id="menuSignOut" class="list-group-item">Sign Out</a>
+            </ul>
+        </div>
+        <main class="bmd-layout-content">
+            <div id="createPostPage" class="container page-container">
+                <div id="postFields" class="row justify-content-center align-items-start">
+                    <div class="col-12 col-lg-4">
+                        <div class="form-group bmd-form-group">
+                            <label for="inputType" class="bmd-label-floating">Type of post</label>
+                            <select class="form-control" id="inputType">
+                                <option>Event</option>
+                                <option>Carpool</option>
+                                <option>Notice</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="form-group bmd-form-group other-prompt">
+                            <label for="inputTitle" class="bmd-label-floating">Title</label>
+                            <input type="text" class="form-control" id="inputTitle">
+                        </div>
+                        <!-- For carpool: -->
+                        <div class="carpool-prompt">
+                            <div class="form-group bmd-form-group">
+                                <label for="inputLocationFrom" class="bmd-label-floating">From</label>
+                                <input type="text" class="form-control" id="inputLocationFrom">
+                            </div>
+                            <div class="form-group bmd-form-group">
+                                <label for="inputLocationTo" class="bmd-label-floating">To</label>
+                                <input type="text" class="form-control" id="inputLocationTo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="text-center form-group bmd-form-group other-prompt">
+                            <input id="fileInput" type="file" hidden>
+                            <button id="submitImage" type="button" class="btn">Add Image</button>
+                        </div>
+                        <!-- For carpool: -->
+                        <div class="form-group bmd-form-group carpool-prompt">
+                            <label for="inputNumPeople" class="bmd-label-floating"># of people</label>
+                            <input type="number" class="form-control" id="inputNumPeople">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group bmd-form-group other-prompt">
+                            <label for="inputDescription" class="bmd-label-floating">Description (optional)</label>
+                            <textarea class="form-control" id="inputDescription" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-9 col-md-6 col-lg-4 other-prompt">
+                        <label for="inputDate" class="bmd-label-floating">Date (optional)</label>
+                        <input type="text" id="inputDate" name="datetimes" class="form-control text-center">
+                        <script>
+                            $(function () {
+                                $('input[name="datetimes"]').daterangepicker({
+                                    timePicker: true,
+                                    startDate: moment().startOf('hour'),
+                                    endDate: moment().startOf('hour').add(32, 'hour'),
+                                    opens: "center",
+                                    locale: {
+                                        format: 'M/DD hh:mm A'
+                                    }
+                                });
+                            });
+                        </script>
+                    </div>
+                    <!-- For carpool: -->
+                    <div class="col-9 col-md-6 col-lg-4 carpool-prompt">
+                        <label for="inputDate" class="bmd-label-floating">Date Range</label>
+                        <input type="text" id="inputDate" name="datetimes" class="form-control text-center">
+                        <script>
+                            $(function () {
+                                $('input[name="datetimes"]').daterangepicker({
+                                    timePicker: true,
+                                    startDate: moment().startOf('hour'),
+                                    endDate: moment().startOf('hour').add(32, 'hour'),
+                                    opens: "center",
+                                    locale: {
+                                        format: 'M/DD hh:mm A'
+                                    }
+                                });
+                            });
+                        </script>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
+                    <button id="submitCancelAddPost" type="button" class="btn btn-secondary">Cancel</button>
+                    <button id="submitAddPost" type="button" class="btn">Create Post</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="scripts/popper.js"></script>
+    <script src="scripts/bootstrap-material-design.js"></script>
+    <script>
+        $("body").bootstrapMaterialDesign();
+    </script>
+    <script src="/__/firebase/7.18.0/firebase-app.js"></script>
+    <script src="/__/firebase/7.18.0/firebase-analytics.js"></script>
+    <script src="/__/firebase/7.18.0/firebase-auth.js"></script>
+    <script src="/__/firebase/7.18.0/firebase-firestore.js"></script>
+    <script src="/__/firebase/7.18.0/firebase-storage.js"></script>
+    <script src="/__/firebase/init.js"></script>
+    <script src="scripts/rosefire.min.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

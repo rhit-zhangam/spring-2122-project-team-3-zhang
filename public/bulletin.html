@@ -26,36 +26,22 @@
         <a class="navbar-brand">RidePosts</a>
       </header>
       <ul class="list-group">
-        <a class="list-group-item">Bulletin Board</a>
-        <a class="list-group-item">Carpools</a>
-        <a class="list-group-item">My Account</a>
-        <a class="list-group-item">Sign Out</a>
+        <a id="menuBulletinBoard" class="list-group-item">Bulletin Board</a>
+        <a id="menuCarpools" class="list-group-item">Carpools</a>
+        <a id="menuAccount" class="list-group-item">My Account</a>
+        <a id="menuSignOut" class="list-group-item">Sign Out</a>
       </ul>
     </div>
     <main class="bmd-layout-content">
       <div id="bulletinPage" class="container page-container">
-
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="..." alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi pariatur soluta eum deleniti, autem consectetur incidunt asperiores inventore fugit numquam provident, distinctio odit ab esse facere exercitationem veniam eos quod?</p>
-          </div>
+        <div id="postListContainer">
         </div>
-
       </div>
     </main>
   </div>
-
-  <button id="fab" type="button" class="btn bmd-btn-fab" data-toggle="modal" data-target="#addPostDialog">
+  <button id="fab" type="button" class="btn bmd-btn-fab">
     <i class="material-icons">add</i>
   </button>
-
-  <!-- <div id="bulletinPage" class="container page-container">
-
-  </div> -->
-
-  </div>
   <script src="scripts/jquery.min.js"></script>
   <script src="scripts/popper.js"></script>
   <script src="scripts/bootstrap-material-design.js"></script>

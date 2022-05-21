@@ -26,22 +26,47 @@
         <a class="navbar-brand">RidePosts</a>
       </header>
       <ul class="list-group">
-        <a class="list-group-item">Bulletin Board</a>
-        <a class="list-group-item">Carpools</a>
-        <a class="list-group-item">My Account</a>
-        <a class="list-group-item">Sign Out</a>
+        <a id="menuBulletinBoard" class="list-group-item">Bulletin Board</a>
+        <a id="menuCarpools" class="list-group-item">Carpools</a>
+        <a id="menuAccount" class="list-group-item">My Account</a>
+        <a id="menuSignOut" class="list-group-item">Sign Out</a>
       </ul>
     </div>
     <main class="bmd-layout-content">
       <div id="carpoolPage" class="container-fluid page-container">
         <div id="map"></div>
+        <div id="sidebar"></div>
       </div>
     </main>
   </div>
   
-  <button id="fab" type="button" class="btn bmd-btn-fab" data-toggle="modal" data-target="#addCarpoolDialog">
+  <button id="fab" type="button" class="btn bmd-btn-fab">
     <i class="material-icons">add</i>
   </button>
+
+  <button id="fabDrive" type="button" class="btn bmd-btn-fab" data-toggle="modal" data-target="#viewRequests">
+    <i class="material-icons">directions_car</i>
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="viewRequests" tabindex="-1" role="dialog" aria-labelledby="View Carpool Requests"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="viewRequestsModalLabel">Requests</h5>
+          </div>
+          <div class="modal-body">
+            <ul class="list-group" id="requestsBody">
+              
+            </ul>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
+          </div>
+      </div>
+  </div>
+</div>
 
   <script src="scripts/jquery.min.js"></script>
   <script src="scripts/popper.js"></script>
@@ -51,9 +76,10 @@
   <script src="/__/firebase/7.18.0/firebase-analytics.js"></script>
   <script src="/__/firebase/7.18.0/firebase-auth.js"></script>
   <script src="/__/firebase/7.18.0/firebase-firestore.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-storage.js"></script>
   <script src="/__/firebase/init.js"></script>
   <script src="scripts/rosefire.min.js"></script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEqTbdq7GxGDq50hNWhyesROKCbr7R5HA&callback=initMap"></script>
+  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAS6BGq8sxhO7mL127m6pqAsZdvwkdFN0A&libraries=places&callback=initMap"></script> -->
   <script src="scripts/main.js"></script>
 </body>
 

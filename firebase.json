@@ -10,5 +10,11 @@
       "**/.*",
       "**/node_modules/**"
     ]
+  },
+  "functions": {
+    "source": "functions"
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }
